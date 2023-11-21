@@ -1,11 +1,15 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@page import="java.text.SimpleDateFormat"%>
 <%
+// These directives set up the JSP page and import necessary Java classes.
+
+// Get the context path of the request.
 String path = request.getContextPath();
+
+// Create a base URL for the application.
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-   
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,19 +85,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         if(message!=null && !"".equals(message)){ %>
             <div class="error"><%= message %></div>
         <% } %>
-        <form action="AccountServlet?method=add" method="post" onsubmit="return check()"> <%-- Set up the form, 1. HTTP sending data method is POST --%>
-            <label for="name">Name</label> <%-- text requirement --%>
-            <input type="text" id="name" name="name" required> <%-- input field, set form id, and required --%>
+        <form action="AccountServlet?method=add" method="post" onsubmit="return check()">
+            <%-- Set up the form, using HTTP POST method for data submission. --%>
+            <label for="name">Name</label>
+            <%-- Label for the name input field. --%>
+            <input type="text" id="name" name="name" required>
+            <%-- Input field for name with id, name, and required attribute. --%>
 
             <label for="amount">Amount</label>
+            <%-- Label for the amount input field. --%>
             <input type="text" id="amount" name="amount" required>
+            <%-- Input field for amount with id, name, and required attribute. --%>
 
             <label for="date">Date</label>
+            <%-- Label for the date input field. --%>
             <input type="text" id="date" name="date" placeholder="yyyy-mm-dd" required>
+            <%-- Input field for date with id, name, placeholder, and required attribute. --%>
 
             <label for="type">Donation Method</label>
-            <select id="type" name="type"> <%--select field, set id (parameter) == type --%>
-                <option value="Check">Check</option> <%-- options --%>
+            <%-- Label for the select field. --%>
+            <select id="type" name="type">
+                <%-- Select field for donation method with id and name attributes. --%>
+                <option value="Check">Check</option>
+                <%-- Options for donation methods. --%>
                 <option value="Cash">Cash</option>
                 <option value="Credit Card">Credit Card</option>
                 <option value="Holy Light">Holy Light</option>
@@ -103,11 +117,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </select>
 
             <label for="phone">Phone</label>
+            <%-- Label for the phone input field. --%>
             <input type="text" id="phone" name="phone" required>
+            <%-- Input field for phone with id, name, and required attribute. --%>
 
-            <button type="submit">Save</button> <%-- Set button type as submit button --%>
+            <button type="submit">Save</button>
+            <%-- Submit button with type attribute set. --%>
         </form>
-        <a href="index.jsp">Back to Menu</a> <%-- have a link that returns to the main menu --%>
+        <a href="index.jsp">Back to Menu</a>
+        <%-- Link to return to the main menu. --%>
     </div>
 
     <script type="text/javascript">
@@ -141,4 +159,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
 </body>
 </html>
-                
